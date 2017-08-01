@@ -2,13 +2,30 @@
 <html>
         
     <head>
+        <!-- SCRIPTS -->
+        <!-- JQuery -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+        <!-- Ads -->
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+        <!-- Google Analytics -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics_debug.js','ga');
+
+            ga('create', 'UA-72303300-2', 'auto');
+            ga('send', 'pageview');
+        </script>
+
+
         <!-- Title -->
         <title>Rice Thresher Purity Test</title>
         
         <!-- Favicon -->
-        <link rel="icon" 
-      type="image/png" 
-      href="http://d2jz71s5ipgn8z.cloudfront.net/20160524mylhvToIpZ/dist/img/favicons/apple-touch-icon-60x60.png">
+        <link rel="icon" type="image/png" href="http://d2jz71s5ipgn8z.cloudfront.net/20160524mylhvToIpZ/dist/img/favicons/apple-touch-icon-60x60.png">
 
 
         <!-- Style -->
@@ -47,20 +64,15 @@
         </style>
 
 
-        <!-- JQuery -->
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	
-	<!-- Ads -->
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<!-- Purity Test 1 (link) -->
-	<ins class="adsbygoogle"
-	    style="display:block"
-	    data-ad-client="ca-pub-3772914411949506"
-	    data-ad-slot="3050489470"
-	    data-ad-format="link"></ins>
-	<script>
-	(adsbygoogle = window.adsbygoogle || []).push({});
-	</script>
+    	<!-- Purity Test 1 (link) -->
+    	<ins class="adsbygoogle"
+    	    style="display:block"
+    	    data-ad-client="ca-pub-3772914411949506"
+    	    data-ad-slot="3050489470"
+    	    data-ad-format="link"></ins>
+    	<script>
+    	(adsbygoogle = window.adsbygoogle || []).push({});
+    	</script>
 		
         <!-- Google Analytics -->
         <script type="text/javascript">
@@ -80,7 +92,7 @@
         <p>
             <p><img src="thresherOfficial.png" width="600" height="111"></p>
             <div id="toHide">
-                <p><i> The Purity Test has historically served as a segway from O-week to true college life at Rice.<br /> Its a voluntary opportunity for O-week groups to bond, and for students to track the maturation<br /> of their experiences throughout college.</i></p>
+                <p><i> The Purity Test has historically served as a segue from O-week to true college life at Rice.<br /> Its a voluntary opportunity for O-week groups to bond, and for students to track the maturation<br /> of their experiences throughout college.</i></p>
                 <p><strong>Caution: This is not a bucket list. Completion of all items on this test will likely result in death.</strong></p>
                 <br />
                 Click on every item you have done. 
@@ -212,10 +224,18 @@
         $('#submit').click(function() {
             // Calculates purity
             var sins = document.querySelectorAll('input[type="checkbox"]:checked').length;
-            var purity = 100-sins
+            var purity = 100-sins;
             
+            // Sends the score to Google Analytics
+            ga('send', {
+              hitType: 'event',
+              eventCategory: 'Score',
+              eventAction: 'Total',
+              eventValue: purity
+            });
+
             // Shows the score in the h1
-            $('#score').html(purity)
+            $('#score').html(purity);
             
             // Shows the score and hides the checks
             $("#toShow").show();
@@ -226,17 +246,6 @@
         $('#reset').click(function() {
             $('input:checkbox').removeAttr('checked');
 		});
-        </script>
-        
-        <!-- Google Analytics -->
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'UA-72303300-2', 'auto');
-            ga('send', 'pageview');
         </script>
 
     </body>
