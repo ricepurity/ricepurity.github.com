@@ -227,13 +227,13 @@
             var sins = sinList.length;
             var purity = 100-sins;
             
-            for (i = 1; i <= 100; i++) {
+            for (i = 0; i < sins; i++) {
                 ga('send', {
                     hitType: 'event',
                     eventCategory: 'Score',
                     eventAction: 'Individual',
-                    eventLabel: i.toString(),
-                    eventValue: (document.getElementById(i.toString()).checked ? 1 : 0)
+                    eventLabel: sinList[i].id,
+                    eventValue: (sinList[i].checked ? 1 : 0)
                 });
             }
 
