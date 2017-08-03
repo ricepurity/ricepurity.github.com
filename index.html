@@ -227,6 +227,16 @@
             var sins = sinList.length;
             var purity = 100-sins;
             
+	    // Sends the score to Google Analytics
+            ga('send', {
+                hitType: 'event',
+                eventCategory: 'Score',
+                eventAction: 'Total',
+                eventLabel: purity.toString(),
+                eventValue: purity
+            });
+
+	    // Sends the individual values to Google Analytics
             for (i = 1; i <= 100; i++) {
                 ga('send', {
                     hitType: 'event',
@@ -236,15 +246,6 @@
                     eventValue: (document.getElementById(i.toString()).checked ? 1 : 0)
                 });
             }
-
-            // Sends the score to Google Analytics
-            ga('send', {
-                hitType: 'event',
-                eventCategory: 'Score',
-                eventAction: 'Total',
-                eventLabel: purity.toString(),
-                eventValue: purity
-            });
 
             // Shows the score in the h1
             $('#score').html(purity);
