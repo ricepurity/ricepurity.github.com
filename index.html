@@ -18,6 +18,7 @@
 
             ga('create', 'UA-72303300-2', 'auto');
             ga('send', 'pageview');
+            ga('set', 'transport', 'beacon');
         </script>
 
 
@@ -64,16 +65,16 @@
         </style>
 
 
-    	<!-- Purity Test 1 (link) -->
-    	<ins class="adsbygoogle"
-    	    style="display:block"
-    	    data-ad-client="ca-pub-3772914411949506"
-    	    data-ad-slot="3050489470"
-    	    data-ad-format="link"></ins>
-    	<script>
-    	(adsbygoogle = window.adsbygoogle || []).push({});
-    	</script>
-		
+        <!-- Purity Test 1 (link) -->
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-3772914411949506"
+            data-ad-slot="3050489470"
+            data-ad-format="link"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        
         <!-- Google Analytics -->
         <script type="text/javascript">
             var _gaq = _gaq || [];
@@ -227,17 +228,7 @@
             var sins = sinList.length;
             var purity = 100-sins;
             
-            for (i = 0; i < sins; i++) {
-                ga('send', {
-                    hitType: 'event',
-                    eventCategory: 'Score',
-                    eventAction: 'Individual',
-                    eventLabel: sinList[i].id,
-                    eventValue: (sinList[i].checked ? 1 : 0)
-                });
-            }
-
-            // Sends the score to Google Analytics
+        // Sends the score to Google Analytics
             ga('send', {
                 hitType: 'event',
                 eventCategory: 'Score',
@@ -246,18 +237,29 @@
                 eventValue: purity
             });
 
+        // Sends the individual values to Google Analytics
+            for (i = 1; i <= 100; i++) {
+                ga('send', {
+                    hitType: 'event',
+                    eventCategory: 'Score',
+                    eventAction: 'Individual',
+                    eventLabel: i.toString(),
+                    eventValue: (document.getElementById(i.toString()).checked ? 1 : 0)
+                });
+            }
+
             // Shows the score in the h1
             $('#score').html(purity);
             
             // Shows the score and hides the checks
             $("#toShow").show();
             $("#toHide").hide();
-		});
+        });
         
         // On click of the reset button: 
         $('#reset').click(function() {
             $('input:checkbox').removeAttr('checked');
-		});
+        });
         </script>
 
     </body>
