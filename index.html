@@ -269,11 +269,8 @@
             });
                 
            //Sends score to GA4 (maybe)
-
-            gtag('event', 'purity.toString()',{
-                hitType: 'event',
-                eventCategory: 'Score',
-                eventAction: 'Total',
+            purity_str = purity.toString()
+            gtag('event', 'purity_str)',{
                 eventValue: purity
             });
 
