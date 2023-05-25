@@ -267,6 +267,15 @@
                 eventLabel: purity.toString(),
                 eventValue: purity
             });
+                
+           //Sends score to GA4 (maybe)
+
+            gtag('event', 'purity.toString()',{
+                hitType: 'event',
+                eventCategory: 'Score',
+                eventAction: 'Total',
+                eventValue: purity
+            });
 
             // Sends the individual values to Google Analytics
             for (i = 0; i < 100; i++) {
