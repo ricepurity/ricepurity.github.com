@@ -275,14 +275,15 @@
 
             // Sends the individual values to Google Analytics
             for (i = 0; i < 100; i++) {
-                ga('send', {
+                /*
+                    ga('send', {
                     hitType: 'event',
                     eventCategory: 'Score',
                     eventAction: 'Individual',
                     eventLabel: order[i].toString(),
                     eventValue: (document.getElementById(order[i].toString()).checked ? 1 : 0)
                 });
-
+                */
                 gtag('event', 'individual_sins', {
                     order[i].toString(): (document.getElementById(order[i].toString()).checked ? 1 : 0),
                 });
