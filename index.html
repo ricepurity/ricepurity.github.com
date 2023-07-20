@@ -281,13 +281,7 @@
                     eventAction: 'Individual',
                     eventLabel: order[i].toString(),
                     eventValue: (document.getElementById(order[i].toString()).checked ? 1 : 0)
-                });
-                if (document.getElementById(order[i].toString()).checked) {
-                    gtag('event', 'score', {
-                        (order[i].toString()) : (1),
-                    });
-
-                }    
+                }); 
             }
 
             // Shows the score in the h1
