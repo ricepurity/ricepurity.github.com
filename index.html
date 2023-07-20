@@ -268,6 +268,11 @@
                 eventValue: purity
             });
                 
+            //Sends score to GA4
+            gtag('event', 'score', {
+                 'score': purity,
+            });    
+                
             // Sends the individual values to Google Analytics
             for (i = 0; i < 100; i++) {
                 ga('send', {
@@ -277,7 +282,6 @@
                     eventLabel: order[i].toString(),
                     eventValue: (document.getElementById(order[i].toString()).checked ? 1 : 0)
                 });
-                
             }
 
             // Shows the score in the h1
