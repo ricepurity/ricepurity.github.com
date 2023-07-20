@@ -268,11 +268,10 @@
                 eventValue: purity
             });
                 
-           //Sends score to GA4 (maybe)
-           //purity_str = purity.toString()
-           //gtag('event', 'purity_str)',{
-              //eventValue: purity
-           //});
+           //Sends score to GA4 
+           gtag('event', 'score', {
+                'score': purity,
+            });
 
             // Sends the individual values to Google Analytics
             for (i = 0; i < 100; i++) {
@@ -282,6 +281,10 @@
                     eventAction: 'Individual',
                     eventLabel: order[i].toString(),
                     eventValue: (document.getElementById(order[i].toString()).checked ? 1 : 0)
+                });
+
+                gtag('event', 'individual_sins', {
+                    order[i].toString(): (document.getElementById(order[i].toString()).checked ? 1 : 0),
                 });
             }
 
