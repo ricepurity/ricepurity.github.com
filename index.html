@@ -20,8 +20,6 @@
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
         <!-- Ads -->
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3772914411949506" crossorigin="anonymous"></script>
 
         <!-- Google Analytics -->
@@ -40,25 +38,49 @@
         <title>Rice Thresher Purity Test</title>
         
         <!-- Favicon -->
-        <!--link rel="icon" type="image/png" href="https://d2jz71s5ipgn8z.cloudfront.net/20160524mylhvToIpZ/dist/img/favicons/apple-touch-icon-60x60.png"-->
-        <!--link rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-180x180.png"-->
         <link rel="shortcut icon" type="image/png" href="favicon.png">
-
 
         <!-- Style -->
         <style>
-            
+
+        body {
+            text-align: center;
+            font-size: 20px; /* Use relative sizes instead of fixed (px) */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 10px;
+        }
+
+        img {
+            max-width: 70%; /* Ensures images don’t overflow */
+            height: auto;
+            width: auto;
+        }
+
+        .button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1em;
+
+            text-align: center;
+            border-radius: 20px;
+            background-color: rgba(102, 255, 220, 0.3);
+            color: rgb(0, 0, 5);
+        }
+                    
         html {
             background-color: #FBEEC8;
             background-image: url("owl.png");
         }
         
-        body {
-            text-align: center;
-        }
         #list {
             text-align: left;
         }
+
         h1 {
             font-size: 300%;
             font-weight: bold;
@@ -66,14 +88,18 @@
             padding:0px;
             margin:0px;
         }
-        
-        .button {
-            text-align: center;
-            border-radius: 20px;
-            background-color: rgba(102, 255, 220, 0.3);
-            color: rgb(0, 0, 5);
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 5px;
+            }
+
+            .button {
+                font-size: 0.9em;
+                padding: 8px 16px;
+            }
         }
-        
+    
         </style>
 
 
@@ -105,7 +131,7 @@
         <p>
             <p>
                 <a href="https://ricethresher.org">
-                    <img src="thresherOfficial.png" width="600" height="111" alt="Rice Thresher Logo">
+                    <img src="thresherOfficial.png" alt="Rice Thresher Logo">
                 </a>
               </p>
             <div id="toHide">
