@@ -62,10 +62,10 @@
         }
 
         .button {
+            justify-content: center; /* Center buttons */
             padding: 10px 20px;
             margin: 10px;
             font-size: 1em;
-
             text-align: center;
             border-radius: 20px;
             background-color: rgba(102, 255, 220, 0.3);
@@ -79,6 +79,18 @@
         
         #list {
             text-align: left;
+            margin-left: 10px;
+        }
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #9FDDF9;
+            cursor: pointer; 
+        }
+
+        label {
+            cursor: pointer;
         }
 
         h1 {
@@ -89,7 +101,22 @@
             margin:0px;
         }
 
+        .thresher-link {
+            color: #303B61; /* Change this to any color you like */
+            text-decoration: none; /* Remove underline */
+            font-weight: bold; /* Make it stand out */
+        }
+
+        .thresher-link:hover {
+            color: #00205B; /* Slightly darker on hover */
+            text-decoration: underline; /* Add underline on hover */
+        }
+
         @media (max-width: 768px) {
+            img {
+                max-width: 100%; /* Ensures images don’t overflow */
+            }
+
             .container {
                 padding: 5px;
             }
@@ -247,11 +274,19 @@
 
                 <input class="button" id="submit" type="submit" value="Calculate My Score!">
                 <input class="button" id="reset" type="submit" value="Clear checkboxes">
+
             </div>
         </div> <!-- id = toHide -->
         <div id = "toShow">
             <h2 id="test">Your score:</h2>
             <h1 id="score"></h1>
+
+            <section id="ThresherBottomText">
+                <p>Thank you for your submission!</p>
+                The Rice Purity test was created by <a href="https://www.ricethresher.org/" target="_blank" class="thresher-link"> the Rice Thresher</a> newspaper at Rice University.
+                <p>Managed by our sexy ass <a href="https://www.ricethresher.org/page/about#bio17" target="_blank" class="thresher-link"> Web Editor</a></p>
+            </section>
+
         </div> <!-- id = toShow -->
         
          <script>
