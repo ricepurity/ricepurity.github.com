@@ -2,6 +2,15 @@
 <html>
         
     <head>
+
+        <!-- Title -->
+        <title>Rice Thresher Purity Test</title>
+        
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/png" href="favicon.png">
+
+        <link rel="stylesheet" href="style.css">
+
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZW9TZJ46CP"></script>
         <script>
@@ -33,103 +42,6 @@
             ga('send', 'pageview');
             ga('set', 'transport', 'beacon');
         </script>
-         
-        <!-- Title -->
-        <title>Rice Thresher Purity Test</title>
-        
-        <!-- Favicon -->
-        <link rel="shortcut icon" type="image/png" href="favicon.png">
-
-        <!-- Style -->
-        <style>
-
-        body {
-            text-align: center;
-            font-size: 20px; /* Use relative sizes instead of fixed (px) */
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 100%;
-            padding: 10px;
-        }
-
-        img {
-            max-width: 70%; /* Ensures images don’t overflow */
-            height: auto;
-            width: auto;
-        }
-
-        .button {
-            justify-content: center; /* Center buttons */
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 1em;
-            text-align: center;
-            border-radius: 20px;
-            background-color: rgba(102, 255, 220, 0.3);
-            color: rgb(0, 0, 5);
-        }
-                    
-        html {
-            background-color: #FBEEC8;
-            background-image: url("owl.png");
-        }
-        
-        #list {
-            text-align: left;
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-
-        input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            accent-color: #9FDDF9;
-            cursor: pointer; 
-        }
-
-        label {
-            cursor: pointer;
-        }
-
-        h1 {
-            font-size: 300%;
-            font-weight: bold;
-            color: red;
-            padding: 0px;
-            margin: 0px;
-        }
-
-        .thresher-link {
-            color: #303B61; /* Change this to any color you like */
-            text-decoration: none; /* Remove underline */
-            font-weight: bold; /* Make it stand out */
-        }
-
-        .thresher-link:hover {
-            color: #00205B; /* Slightly darker on hover */
-            text-decoration: underline; /* Add underline on hover */
-        }
-
-        @media (max-width: 768px) {
-            img {
-                max-width: 100%; /* Ensures images don’t overflow */
-            }
-
-            .container {
-                padding: 5px;
-            }
-
-            .button {
-                font-size: 0.9em;
-                padding: 8px 16px;
-            }
-        }
-    
-        </style>
-
 
         <!-- Purity Test 1 (link) -->
         <ins class="adsbygoogle"
@@ -162,7 +74,6 @@
                     <img src="thresherOfficial.png" alt="Rice Thresher Logo">
                 </a>
               </p>
-            <div id="toHide">
                 <p><i> The Purity Test has historically served as a segue from O-week to true college life at Rice.<br /> It's a voluntary opportunity for O-week groups to bond, and for students to track the maturation<br /> of their experiences throughout college.</i></p>
                 <p><strong>Caution: This is not a bucket list. Completion of all items on this test will likely result in death.</strong></p>
                 <br />
@@ -277,26 +188,15 @@
                 <input class="button" id="reset" type="submit" value="Clear checkboxes">
 
             </div>
-        </div> <!-- id = toHide -->
-        <div id = "toShow">
-            <h2 id="test">Your score:</h2>
-            <h1 id="score"></h1>
-
-            <section id="ThresherBottomText">
-                <p>Thank you for your submission!</p>
-                The Rice Purity test was created by <a href="https://www.ricethresher.org/" target="_blank" class="thresher-link"> the Rice Thresher</a> newspaper at Rice University.
-            </section>
-
-        </div> <!-- id = toShow -->
         
-         <script>
+        <script>
         // IDs
         // toHide: Everything that needs to be hidden when score is shown
         // toShow: Everything that needs to be shown when score is shown
         // score: h1 that shows the score
         
         // Initially hides results
-        $("#toShow").hide();
+        // $("#toShow").hide();
 
         // Pre-calcuate the individual send order
         function shuffle(array) {
@@ -351,12 +251,15 @@
                 }); 
             }
 
+            sessionStorage.setItem("score", purity); // optional, for fallback
+            window.location.href = `score.html?score=${purity}`;
+
             // Shows the score in the h1
-            $('#score').html(purity);
+            // $('#score').html(purity);
             
             // Shows the score and hides the checks
-            $("#toShow").show();
-            $("#toHide").hide();
+            // $("#toShow").show();
+            // $("#toHide").hide();
         });
         
         // On click of the reset button: 
