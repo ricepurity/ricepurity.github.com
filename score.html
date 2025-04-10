@@ -19,9 +19,6 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3772914411949506" crossorigin="anonymous"></script>
   </head>
   <body>
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3772914411949506"
-     crossorigin="anonymous"></script>
     <!-- score header -->
     <ins class="adsbygoogle"
         style="display:block"
@@ -51,6 +48,12 @@
     <h2>Your score:</h2>
     <h1 id="score">--</h1>
 
+    <div id="share" style="margin-top: 1em;">
+      <button onclick="copyLink()">Copy Link</button>
+      <a id="text-share" href="#"><button>Share via Text</button></a>
+      <a id="x-share" href="#" target="_blank" rel="noopener noreferrer"><button>Share on X</button></a>
+    </div>    
+
     <p>Thank you for your submission!</p>
     <p>
       The Rice Purity test was created by 
@@ -58,8 +61,6 @@
       newspaper at Rice University.
     </p>
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3772914411949506"
-     crossorigin="anonymous"></script>
     <ins class="adsbygoogle"
         style="display:block"
         data-ad-format="autorelaxed"
@@ -71,10 +72,30 @@
 
     <script>
       const params = new URLSearchParams(window.location.search);
-      const score = params.get("score") || sessionStorage.getItem("score");
+      const score = int(params.get("score")) || sessionStorage.getItem("score");
       if (score) {
         document.getElementById("score").textContent = score;
       }
     </script>
+
+    <script>
+      const scoreText = score ? `I got a ${score} on the Rice Purity Test!` : '';
+      const shareURL = window.location.origin;
+
+      function copyLink() {
+        navigator.clipboard.writeText(shareURL).then(() => {
+          alert("Link copied to clipboard!");
+        });
+      }
+
+      // Text message link
+      const smsMessage = `I got a ${scoreText} on the Rice Purity Test! Check yours here: ${shareURL}`;
+      document.getElementById("text-share").href = `sms:?&body=${encodeURIComponent(smsMessage)}`;
+
+      // X (Twitter) share link
+      const xLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(scoreText)}&url=${encodeURIComponent(shareURL)}`;
+      document.getElementById("x-share").href = xLink;
+    </script>
+
   </body>
 </html>

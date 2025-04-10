@@ -26,6 +26,17 @@ img {
     background-color: rgba(102, 255, 220, 0.3);
     color: rgb(0, 0, 5);
 }
+
+button {
+    justify-content: center; /* Center buttons */
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1em;
+    text-align: center;
+    border-radius: 20px;
+    background-color: rgba(255, 0, 0, 0.3);
+    color: rgb(0, 0, 5);
+}
             
 html {
     background-color: #FBEEC8;
