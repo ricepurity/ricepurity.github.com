@@ -72,7 +72,7 @@
 
     <script>
       const params = new URLSearchParams(window.location.search);
-      const score = int(params.get("score")) || sessionStorage.getItem("score");
+      const score = params.get("score") || sessionStorage.getItem("score");
       if (score) {
         document.getElementById("score").textContent = score;
       }
