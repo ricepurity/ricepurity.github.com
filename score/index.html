@@ -89,7 +89,7 @@
       }
 
       // Text message link
-      const smsMessage = `I got a ${scoreText} on the Rice Purity Test! Check yours here: ${shareURL}`;
+      const smsMessage = `${scoreText} Check yours here: ${shareURL}`;
       document.getElementById("text-share").href = `sms:?&body=${encodeURIComponent(smsMessage)}`;
 
       // X (Twitter) share link
