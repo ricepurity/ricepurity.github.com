@@ -56,7 +56,15 @@
 
     <script>
       const params = new URLSearchParams(window.location.search);
-      const score = params.get("score") || sessionStorage.getItem("score");
+
+      const urlScore = params.get("score");
+      const score = sessionStorage.getItem("score");
+
+      if (urlScore != score) {
+        // no cheating!
+        window.location.href = `../`;
+      }
+
       if (score) {
         document.getElementById("score").textContent = score;
       }
