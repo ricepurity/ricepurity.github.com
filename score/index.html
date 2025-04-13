@@ -54,8 +54,9 @@
 
     <div id="share" style="margin-top: 1em;">
       <button onclick="copyLink()">Copy Link</button>
-      <a id="text-share" href="#"><button>Share via Text</button></a>
-      <a id="x-share" href="#" target="_blank" rel="noopener noreferrer"><button>Share on X</button></a>
+      <a id="text-share" href="../"><button onclick="restartEvent()">Take again!</button></a>
+      <a id="text-share" href="#"><button onclick="textEvent()">Share via Text</button></a>
+      <a id="x-share" href="#" target="_blank" rel="noopener noreferrer"><button onclick="xEvent()">Share on X</button></a>
     </div>    
 
     <p>Thank you for your submission!</p>
@@ -97,6 +98,36 @@
       function copyLink() {
         navigator.clipboard.writeText(shareURL).then(() => {
           alert("Link copied to clipboard!");
+        });
+
+        gtag('event', 'copy_link', {
+          'event_category': 'Sharing',
+          'event_label': 'Copied to Clipboard',
+          'value': 1
+        });
+      }
+
+      function restartEvent() {
+        gtag('event', 'restart_test', {
+          'event_category': 'Quiz Interaction',
+          'event_label': 'Restart Button Click',
+          'value': 1
+        });
+      }
+
+      function textEvent() {
+        gtag('event', 'sms_share', {
+          'event_category': 'Sharing',
+          'event_label': 'Share to SMS',
+          'value': 1
+        });
+      }
+
+      function xEvent() {
+        gtag('event', 'x_share', {
+          'event_category': 'Sharing',
+          'event_label': 'Share to X',
+          'value': 1
         });
       }
 
