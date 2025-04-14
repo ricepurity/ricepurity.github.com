@@ -49,7 +49,14 @@
                 Click on every item you have done. 
                 <abbr title="Member of the Preferred Sex">MPS</abbr> stands for Member of the Preferred Sex.
         </p>
-            <div id="list">
+            <div class="question-zero">
+                <span class="question-index">0.</span>
+                <input type="checkbox" id="0" checked disabled>
+                <label for="0">
+                    Followed us <a href="https://instagram.com/realricepurity" target="_blank" onclick="gtag('event', 'instagram_click');" rel="noopener noreferrer">@realricepurity</a> on Instagram?
+                </label>
+            </div>
+            <div id = "list">
                 <ol>
                     <li> <input type="checkbox" id="1"> <label for="1"> Held hands romantically? </label> </li> 
                     <li> <input type="checkbox" id="2"> <label for="2"> Been on a date? </label> </li>
@@ -193,9 +200,10 @@
         // On click of the submit button: 
         $('#submit').click(function() {
             // Calculates purity
+           // const checboxes = document.querySelector("#")
             var sinList = document.querySelectorAll('input[type="checkbox"]:checked');
             var sins = sinList.length;
-            var purity = 100-sins;
+            var purity = 100-sins + 1;
             
             //Sends score to GA4
             gtag('event', 'score', {
