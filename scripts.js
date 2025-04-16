@@ -40,6 +40,8 @@ $(document).ready(function() {
         // Update the URL without reloading the page:
         history.pushState({ page: 'score' }, '', 'score/?score=' + purity);
 
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
         // add if pages aren't being recognized
         gtag('event', 'page_view', {
             page_path: '/score/?score=' + purity,
