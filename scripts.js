@@ -39,7 +39,13 @@ $(document).ready(function() {
 
         // Update the URL without reloading the page:
         history.pushState({ page: 'score' }, '', 'score/?score=' + purity);
-        
+
+        // add if pages aren't being recognized
+        gtag('event', 'page_view', {
+            page_path: '/score/?score=' + purity,
+            page_title: 'Your Rice Purity Score'
+        });
+          
         // Send score to GA4
         gtag('event', 'score', { 'score': purity });
         
