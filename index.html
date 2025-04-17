@@ -2,6 +2,7 @@
 <html lang="en">
         
     <head>
+
         <!-- Title -->
         <title>The Rice Purity Test</title>
         
@@ -12,7 +13,7 @@
         <link rel="stylesheet" href="style.css">
 
         <!-- pre-fetch score page -->
-        <!-- <link rel="prefetch" href="/score.html" as="document"> -->
+        <link rel="prefetch" href="/score.html" as="document">
 
         <!-- META -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,13 +45,13 @@
             </p>
                 <p><i> The Purity Test has historically served as a segue from O-week to true college life at Rice.<br /> It's a voluntary opportunity for O-week groups to bond, and for students to track the maturation<br /> of their experiences throughout college.</i></p>
                 <p><strong>Caution: This is not a bucket list. Completion of all items on this test will likely result in death.</strong></p>
-                <br/>
+                <br />
                 Click on every item you have done. 
                 <abbr title="Member of the Preferred Sex">MPS</abbr> stands for Member of the Preferred Sex.
         </p>
-
+        
         <div id = "list">
-            <ol start= "0">
+            <ol start=" 0">
                 <li> <input type="checkbox" id="0" checked disabled> <label for="0"> <strong>Followed us <a href="https://instagram.com/realricepurity" target="_blank" onclick="gtag('event', 'instagram_click');" rel="noopener noreferrer">@realricepurity</a> on Instagram?</strong></label> </li> 
                 <li> <input type="checkbox" id="1"> <label for="1"> Held hands romantically? </label> </li> 
                 <li> <input type="checkbox" id="2"> <label for="2"> Been on a date? </label> </li>
@@ -156,48 +157,65 @@
 
             <input class="button" id="submit" type="submit" value="Calculate My Score!">
             <input class="button" id="reset" type="submit" value="Clear checkboxes">
+
         </div>
-
-        <div id="resultContainer" style="display: none;">
-            <!-- Score Header -->
-            <!-- <ins class="adsbygoogle"
-            style="display:block"
-            data-ad-client="ca-pub-3772914411949506"
-            data-ad-slot="7501839623"
-            data-ad-format="auto"
-            data-full-width-responsive="true"></ins>
-            <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            </script> -->
-
-            <h2>Your score:</h2>
-            <h1 id="scoreDisplay">--</h1>
-           
-            <div id="share" style="margin-top: 1em;">
-                <a id="restart"><button>Take again!</button></a>
-                <button id ="copy-link">Copy Link</button>
-                <a id="text-share" href="#"><button>Share via Text</button></a>
-                <a id="x-share" href="#" target="_blank" rel="noopener noreferrer"><button>Share on X</button></a>
-            </div>    
         
-            <p>Thank you for your submission!</p>
-            <p>
-                The Rice Purity test was created by 
-                <a class = "thresher-link" href="https://www.ricethresher.org/" target="_blank">the Rice Thresher</a>
-                newspaper at Rice University.
-            </p>
-        </div>
-        <!-- Score Footer -->
-        <ins class="adsbygoogle"
-        style="display:block"
-        data-ad-format="autorelaxed"
-        data-ad-client="ca-pub-3772914411949506"
-        data-ad-slot="7726992915"></ins>
         <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
+        // IDs
+        // toHide: Everything that needs to be hidden when score is shown
+        // toShow: Everything that needs to be shown when score is shown
+        // score: h1 that shows the score
+        
+        // Initially hides results
+        // $("#toShow").hide();
+
+        // LOAD BEARING SORTING ALGORITHM DO NOT REMOVE!:
+
+            // Pre-calcuate the individual send order
+            // function shuffle(array) {
+            //      var currentIndex = array.length, temporaryValue, randomIndex;
+            //      // While there remain elements to shuffle...
+            //      while (0 !== currentIndex) {
+            //         // Pick a remaining element...
+            //         randomIndex = Math.floor(Math.random() * currentIndex);
+            //         currentIndex -= 1;
+
+            //         // And swap it with the current element.
+            //         temporaryValue = array[currentIndex];
+            //         array[currentIndex] = array[randomIndex];
+            //         array[randomIndex] = temporaryValue;
+            //      }
+
+            //     return array;
+            // }
+
+            // const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100];
+            // const order = shuffle(nums);
+
+        // On click of the submit button: 
+        $('#submit').click(function() {
+            // Calculates purity
+           // const checboxes = document.querySelector("#")
+            var sinList = document.querySelectorAll('input[type="checkbox"]:checked');
+            var sins = sinList.length;
+            var purity = 100-sins + 1;
+            
+            //Sends score to GA4
+            gtag('event', 'score', {
+                'score': purity,
+            });    
+
+            sessionStorage.setItem("score", purity); // optional, for fallback
+            window.location.href = `score/?score=${purity}`;
+            
+        });
+        
+        // On click of the reset button: 
+        $('#reset').click(function() {
+            $('input:checkbox').removeAttr('checked');
+        });
         </script>
-         <!-- External JavaScript file -->
-         <script src="scripts.js"></script>
+
     </body>
 </html>
  
