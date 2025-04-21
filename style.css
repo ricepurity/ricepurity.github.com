@@ -1,6 +1,6 @@
 body {
     text-align: center;
-    font-size: 20px; /* Use relative sizes instead of fixed (px) */
+    font-size: 20px;
     margin: 0;
     padding: 0;
 }
@@ -17,7 +17,7 @@ img {
 }
 
 .button {
-    justify-content: center; /* Center buttons */
+    justify-content: center;
     padding: 10px 20px;
     margin: 10px;
     font-size: 1em;
@@ -28,7 +28,7 @@ img {
 }
 
 button {
-    justify-content: center; /* Center buttons */
+    justify-content: center;
     padding: 10px 20px;
     margin: 10px;
     font-size: 1em;
@@ -54,16 +54,6 @@ ol {
     padding-top: 0;
 }
 
-.question-zero {
-    display: flex;
-    align-items: center;
-    padding-left: 25px;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-bottom: 2px;
-    gap: 0.5em;
-}
-
 input[type="checkbox"] {
     width: 20px;
     height: 20px;
@@ -84,13 +74,13 @@ h1 {
 }
 
 .thresher-link {
-    color: #303B61; /* Change this to any color you like */
+    color: #0A509E;
     text-decoration: none; /* Remove underline */
     font-weight: bold; /* Make it stand out */
 }
 
 .thresher-link:hover {
-    color: #00205B; /* Slightly darker on hover */
+    color: #303B61; /* Slightly darker on hover */
     text-decoration: underline; /* Add underline on hover */
 }
 
