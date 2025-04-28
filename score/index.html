@@ -18,6 +18,14 @@
       gtag('config', 'G-ZW9TZJ46CP');
     </script>
 
+    <script>
+      gtag('event', 'page_view', {
+        page_location: window.location.href,
+        page_path: window.location.pathname + window.location.search,
+        page_title: `Your Rice Purity Score: ${purity}`
+      });
+    </script>
+
     <!-- Ads -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3772914411949506" crossorigin="anonymous"></script>
   </head>
