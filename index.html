@@ -211,7 +211,7 @@
         
         // On click of the reset button: 
         $('#reset').click(function() {
-            $('input:checkbox').removeAttr('checked');
+            $('input:checkbox:not([disabled])').prop('checked', false);
         });
         </script>
 
