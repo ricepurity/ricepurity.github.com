@@ -27,6 +27,11 @@ img {
     color: rgb(0, 0, 5);
 }
 
+#submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 button {
     justify-content: center;
     padding: 10px 20px;
