@@ -38,7 +38,7 @@ async function submitData(purityScore, answers) {
   };
 
   try {
-    const response = await fetch("https://5whzj6ct5m.execute-api.us-east-2.amazonaws.com/prod/submit", {
+    const response = await fetch("https://ricepuritytest.com/prod/submit", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
